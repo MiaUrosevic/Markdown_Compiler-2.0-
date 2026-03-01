@@ -42,7 +42,7 @@ def main():
     # to get the command_lines test to pass,
     # you will need to uncomment the line below;
     # then add the args.add_css variable as a parameter to convert_file
-    #parser.add_argument('--add_css', action='store_true')
+    parser.add_argument('--add_css', action='store_true')
     args = parser.parse_args()
 
     # call the main function

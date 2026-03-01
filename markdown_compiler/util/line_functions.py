@@ -79,38 +79,31 @@ def compile_italic_star(line):
     return line
 
 
-def compile_italic_star(line):
-    '''
-    Convert "*italic*" into "<i>italic</i>".
+def compile_italic_underscore(line):
+    """
+    Convert "_italic_" into "<i>italic</i>".
 
-    HINT:
-    Italics require carefully tracking the beginning and ending positions of the text to be replaced.
-    This is similar to the `delete_HTML` function that we implemented in class.
-    It's a tiny bit more complicated since we are not just deleting substrings from the text,
-    but also adding replacement substrings.
-
-    >>> compile_italic_star('*This is italic!* This is not italic.')
+    >>> compile_italic_underscore('_This is italic!_ This is not italic.')
     '<i>This is italic!</i> This is not italic.'
-    >>> compile_italic_star('*This is italic!*')
+    >>> compile_italic_underscore('_This is italic!_')
     '<i>This is italic!</i>'
-    >>> compile_italic_star('This is *italic*!')
+    >>> compile_italic_underscore('This is _italic_!')
     'This is <i>italic</i>!'
-    >>> compile_italic_star('This is not *italic!')
-    'This is not *italic!'
-    >>> compile_italic_star('*')
-    '*'
-    '''
-    
+    >>> compile_italic_underscore('This is not _italic!')
+    'This is not _italic!'
+    >>> compile_italic_underscore('_')
+    '_'
+    """
     start = 0
     while True:
-        start = line.find("*", start)
+        start = line.find("_", start)
         if start == -1:
             break
-        end = line.find("*", start + 1)
+        end = line.find("_", start + 1)
         if end == -1:
             break
         line = line[:start] + "<i>" + line[start+1:end] + "</i>" + line[end+1:]
-        start += 3  # Move past the newly inserted <i> tag
+        start += len("<i></i>")  # Move past the inserted tags
     return line
 
 
