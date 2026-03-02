@@ -33,7 +33,7 @@ you will not be able to solve the more difficult problems.
 
 import argparse
 
-from markdown_compiler import covert_file 
+from markdown_compiler import convert_file 
 
 def main():
     # process command line arguments
