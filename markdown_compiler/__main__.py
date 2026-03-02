@@ -31,11 +31,12 @@ If you use AI as a crutch to solve the simple problems for you,
 you will not be able to solve the more difficult problems.
 '''
 
-from markdown_compiler import *
+import argparse
+
+from markdown_compiler import covert_file 
 
 def main():
     # process command line arguments
-    import argparse
     parser = argparse.ArgumentParser()
     parser.add_argument('--input_file', required=True)
     # FIXME:
